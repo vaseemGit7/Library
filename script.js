@@ -20,9 +20,9 @@ function addBookToLibrary(){
     showBooks();
 }
 
-for(let i=0;i<2;i++){
-    addBookToLibrary();
-}
+// for(let i=0;i<2;i++){
+//     addBookToLibrary();
+// }
 
 function showBooks(){
     for(let i=0;i<myLibrary.length;i++){
