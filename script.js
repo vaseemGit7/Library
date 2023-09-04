@@ -7,20 +7,32 @@ function Book(title,author,pages){
 }
 
 function getUserInput(){
-    const book = Object.create(Book);
-    book.title = prompt("Enter the title");
-    book.author = prompt("Enter author name");
-    book.pages = parseInt(prompt("Enter the number of pages"));
-    return book;
+    const newBook = Object.create(Book);
+    newBook.title = prompt("Enter the title");
+    newBook.author = prompt("Enter author name");
+    newBook.pages = parseInt(prompt("Enter the number of pages"));
+    return newBook;
 }
-
 
 function addBookToLibrary(){
-    return myLibrary.push(getUserInput());
+    myLibrary.push(getUserInput());
+    console.clear();
+    showBooks();
 }
 
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
+for(let i=0;i<2;i++){
+    addBookToLibrary();
+}
 
-console.log(myLibrary);
+function showBooks(){
+    for(let i=0;i<myLibrary.length;i++){
+        displayInfo(myLibrary[i]);
+    }
+}
+
+
+function displayInfo(book){
+    for(const key in book){
+        console.log("key: "+key+" value: "+book[key]);
+    }
+}
