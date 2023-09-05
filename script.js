@@ -1,3 +1,11 @@
+const addButton = document.getElementById('addButton');
+const dialogModal = document.getElementById('dialogModal');
+
+
+addButton.addEventListener('click',() =>{
+    dialogModal.showModal();
+})
+
 const myLibrary = [];
 
 function Book(title,author,pages){

@@ -12,10 +12,23 @@
     <div class="main-container">
         <div class="nav-bar">
             <div class="logo">Library</div>
-            <button class="add-button">+ Add Book</button>
+            <button class="add-button" id="addButton">+ Add Book</button>
         </div>
         <div class="books-container">
             
+        </div>
+        <div class="form-container">
+            <dialog class="dialog-modal" id="dialogModal">
+                <form class="form">
+                    <div class="form-title">Add new book</div>
+                    <input type="text" class="info-input" id="titleInput" placeholder="Title">
+                    <input type="text" class="info-input" id="authorInput" placeholder="Author">
+                    <input type="number" class="info-input" id="pagesInput" placeholder="No. of pages" step="1">
+                    <div class="checkbox">Have you read it? <input type="checkbox" class="checkbox-input" id="checkboxInput"></div> 
+                    <button class="submit-button" id="submitButton">Submit</button>
+                    <button class="close-button" id="close-button">×</button>
+                </form>
+            </dialog>
         </div>
     </div>
 </body>
