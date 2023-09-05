@@ -7,15 +7,57 @@
     box-sizing: border-box;
 }
 
+:root{
+    --neutal-100: #F5F5F5;
+    --slate-50: #F8FAFC;
+    --slate-950: #020617;
+}
+
 html{
     font-size: 62.5%;
 }
 
 body{
-    background-color: #F5F5F5;
+    background-color: var(--neutal-100);
     font-family: 'Poppins', sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-containter{
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-rows: max-content 1fr;
+    gap:50px;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    margin:10px 50px;
+    background-color: var(--slate-50);
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .logo{
     font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: var(--slate-950);
+}
+
+.add-button{
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    background-color: var(--slate-50);
+    font-weight: 600;
+    color: var(--slate-950);
+}
+
+.add-button:hover{
+    background-color: var(--slate-950);
+    color: var(--slate-50);
+    border-radius: 10px;
+    cursor: pointer;
 }
