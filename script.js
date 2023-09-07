@@ -37,17 +37,56 @@ function createBook(){
 
 function addBookToLibrary(){
     myLibrary.push(createBook());
+    clearBooks();
     showBooks();
+}
+
+function clearBooks(){
+    const booksContainer = document.querySelector('#booksContainer');
+    booksContainer.innerHTML = ''; 
 }
 
 function showBooks(){
     for(let i=0;i<myLibrary.length;i++){
-        displayInfo(myLibrary[i]);
+        displayCard(myLibrary[i]);
+        console.log(myLibrary[i]);
+        console.log('called :' + i);
     }
 }
 
-function displayInfo(book){
-    for(const key in book){
-        console.log("key: "+key+" value: "+book[key]);
-    }
+function displayCard(book){
+   const booksContainer = document.querySelector("#booksContainer");
+   const docFrag = document.createDocumentFragment();
+   const bookCard = document.createElement('div');
+   const bookTitle = document.createElement('div');
+   const bookAuthor = document.createElement('div');
+   const bookPages = document.createElement('div');
+   const readButton = document.createElement('button');
+   const removeButton = document.createElement('button');
+
+   bookCard.setAttribute('id',`book-${myLibrary.indexOf(book)}`);
+   bookCard.classList.add('book-card');
+   
+   bookTitle.textContent = book.title;
+   bookTitle.classList.add('book-title', 'book-info');
+   bookCard.appendChild(bookTitle);
+
+   bookAuthor.textContent = book.author;
+   bookAuthor.classList.add('book-author', 'book-info');
+   bookCard.appendChild(bookAuthor);
+
+   bookPages.textContent = book.pages;
+   bookPages.classList.add('book-pages', 'book-info');
+   bookCard.appendChild(bookPages);
+
+   readButton.textContent = "Read";
+   readButton.classList.add('read-button');
+   bookCard.appendChild(readButton);
+
+   removeButton.textContent = "Remove";
+   removeButton.classList.add('remove-button');
+   bookCard.appendChild(removeButton);
+
+   docFrag.appendChild(bookCard);
+   booksContainer.appendChild(docFrag);
 }
