@@ -40,16 +40,20 @@ function createBook(){
     if(title === ""){
         newBook.title ="Unknown";
     }
+    else{
+        newBook.title = title; 
+    }
     if(author === ""){
         newBook.author ="Unknown";
+    }
+    else{
+        newBook.author = author; 
     }
     if(pages === ""){
         newBook.pages = "Unknown";
     }
     else{
-    newBook.title = title;
-    newBook.author = author; 
-    newBook.pages = pages;
+        newBook.pages = pages;
     }
     newBook.read = document.getElementById('checkboxInput').checked;
     return newBook;

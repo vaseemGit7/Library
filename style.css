@@ -9,7 +9,7 @@
 
 :root{
     --neutal-100: #F5F5F5;
-    --neutral-200: #E5E5E5;
+    --neutral-200: #e5e5e5;
     --neutral-300: #D4D4D4;
     --slate-50: #F8FAFC;
     --slate-950: #020617;
@@ -121,7 +121,7 @@ body{
     border: none;
     padding: 20px;
     border-radius: 10px;
-    background-color: var(--neutral-200);
+    background-color: var(--neutal-100);
 }
 
 .form{
@@ -148,6 +148,13 @@ body{
     font-size: 1.7rem;
 }
 
+.checkbox-input{
+    margin-left: 10px;
+    height: 15px;
+    width: 15px;
+    accent-color: white;
+}
+
 .submit-button{
     background-color: var(--green-500);
     border: none;
@@ -164,11 +171,36 @@ body{
     right: 5px;
     font-size: 1.6rem;
     font-weight: 600;
-    background-color: var(--slate-950);
-    color: var(--slate-50);
+    background-color: var(--neutal-100);
+    color: var(--slate-950);
     padding: 2px 6px;
     border: none;
     border-radius: 40px;
     
 }
 
+.submit-button:hover, .read-button:hover{
+    cursor: pointer;
+    background-color: #4ade80;
+}
+
+.unread-button:hover{
+    cursor: pointer;
+    background-color: #f87171;
+}
+
+.close-button:hover{
+    cursor: pointer;
+    background-color: var(--slate-950);
+    color: var(--slate-50);
+}
+
+.remove-button:hover{
+    cursor: pointer;
+    background-color: var(--neutral-200);
+}
+
+.info-input:focus{
+    outline: none;
+    border: 2px solid #6E6E6E;
+}
