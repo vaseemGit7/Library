@@ -14,6 +14,7 @@
     --slate-50: #F8FAFC;
     --slate-950: #020617;
     --green-500: #22C55E;
+    --rose-500: #F43F5E;
 }
 
 html{
@@ -88,7 +89,7 @@ body{
     font-weight: 500;
 }
 
-.read-button, .remove-button{
+.read-button, .remove-button, .unread-button{
     border: none;
     width:200px;
     font-size: 1.8rem;
@@ -99,6 +100,11 @@ body{
 
 .read-button{
     background-color: var(--green-500);
+    color: var(--slate-50);
+}
+
+.unread-button{
+    background-color: var(--rose-500);
     color: var(--slate-50);
 }
 

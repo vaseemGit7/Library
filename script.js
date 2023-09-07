@@ -21,10 +21,11 @@ submitButton.addEventListener('click',(e)=>{
 
 const myLibrary = [];
 
-function Book(title,author,pages){
+function Book(title,author,pages,read){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 }
 
 function createBook(){
@@ -32,6 +33,7 @@ function createBook(){
     newBook.title = document.getElementById('titleInput').value;
     newBook.author = document.getElementById('authorInput').value;
     newBook.pages = document.getElementById('pagesInput').value;
+    newBook.read = document.getElementById('checkboxInput').checked;
     return newBook;
 }
 
@@ -79,8 +81,14 @@ function displayCard(book){
    bookPages.classList.add('book-pages', 'book-info');
    bookCard.appendChild(bookPages);
 
-   readButton.textContent = "Read";
-   readButton.classList.add('read-button');
+   if(book.read === true){
+    readButton.textContent = "Read";
+    readButton.classList.add('read-button');
+   }
+   if(book.read === false){
+    readButton.textContent = "Not Read";
+    readButton.classList.add('unread-button');
+   }
    bookCard.appendChild(readButton);
 
    removeButton.textContent = "Remove";
@@ -92,6 +100,12 @@ function displayCard(book){
 
    removeButton.addEventListener('click',()=>{
     myLibrary.splice(myLibrary.indexOf(book),1);
+    clearBooks();
+    showBooks();
+   })
+
+   readButton.addEventListener('click',()=>{
+    book.read = !book.read;
     clearBooks();
     showBooks();
    })
