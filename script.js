@@ -3,6 +3,7 @@ const submitButton = document.getElementById('submitButton');
 const closeButton = document.getElementById('closeButton');
 
 const dialogModal = document.getElementById('dialogModal');
+const form = document.querySelector('.form');
 
 addButton.addEventListener('click',(e) =>{
     e.preventDefault();
@@ -17,6 +18,8 @@ closeButton.addEventListener('click',(e)=>{
 submitButton.addEventListener('click',(e)=>{
     e.preventDefault();
     addBookToLibrary();
+    form.reset();
+    dialogModal.close();
 })
 
 const myLibrary = [];
@@ -30,29 +33,39 @@ function Book(title,author,pages,read){
 
 function createBook(){
     const newBook = Object.create(Book);
-    newBook.title = document.getElementById('titleInput').value;
-    newBook.author = document.getElementById('authorInput').value;
-    newBook.pages = document.getElementById('pagesInput').value;
+    const title = document.getElementById('titleInput').value;
+    const author = document.getElementById('authorInput').value;
+    const pages = document.getElementById('pagesInput').value;
+
+    if(title === ""){
+        newBook.title ="Unknown";
+    }
+    if(author === ""){
+        newBook.author ="Unknown";
+    }
+    if(pages === ""){
+        newBook.pages = "Unknown";
+    }
+    else{
+    newBook.title = title;
+    newBook.author = author; 
+    newBook.pages = pages;
+    }
     newBook.read = document.getElementById('checkboxInput').checked;
     return newBook;
 }
 
 function addBookToLibrary(){
     myLibrary.push(createBook());
-    clearBooks();
-    showBooks();
+    render();
 }
 
-function clearBooks(){
+function render(){
     const booksContainer = document.querySelector('#booksContainer');
     booksContainer.innerHTML = ''; 
-}
-
-function showBooks(){
+    
     for(let i=0;i<myLibrary.length;i++){
         displayCard(myLibrary[i]);
-        console.log(myLibrary[i]);
-        console.log('called :' + i);
     }
 }
 
@@ -100,13 +113,11 @@ function displayCard(book){
 
    removeButton.addEventListener('click',()=>{
     myLibrary.splice(myLibrary.indexOf(book),1);
-    clearBooks();
-    showBooks();
+    render();
    })
 
    readButton.addEventListener('click',()=>{
     book.read = !book.read;
-    clearBooks();
-    showBooks();
+    render();
    })
 }
