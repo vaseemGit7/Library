@@ -89,4 +89,10 @@ function displayCard(book){
 
    docFrag.appendChild(bookCard);
    booksContainer.appendChild(docFrag);
+
+   removeButton.addEventListener('click',()=>{
+    myLibrary.splice(myLibrary.indexOf(book),1);
+    clearBooks();
+    showBooks();
+   })
 }
